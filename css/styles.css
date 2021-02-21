@@ -12,36 +12,6 @@ header {
   max-width: 1140px;
   margin: 0 auto;
 }
-.menu {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.topbar-content {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 0px 10px;
-  border-bottom: 1px solid #DFDFDF;
-}
-.topbar-content .tagline h5{
-  margin: 0;
-  text-transform: capitalize;
-  font-weight: bolder;
-  color: #394464;
-}
-
-.topbar-content .menu.has-social-icons li {
-  padding: 0 5px;
-}
-
-.topbar-content .menu.has-social-icons li .icon-link {
-  display: block;
-  height: 30px;
-  width: 30px;
-  border-radius: 5px;
-}
-
 .icon-link.insta, .icon-link.tiktok {
   background-color: black;
 }
@@ -72,4 +42,71 @@ header {
 
 .icon-link.whatsapp {
   background-color: #25d366;
+}
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topbar-content, .navbar-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px 10px;
+  border-bottom: 1px solid #DFDFDF;
+  align-items: center;
+}
+.topbar-content .tagline h5{
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: bolder;
+  color: #394464;
+}
+
+.topbar-content .menu.has-social-icons li {
+  padding: 0 5px;
+}
+
+.topbar-content .menu.has-social-icons li .icon-link {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-content {
+  border-bottom: 0;
+  padding: 10px 0;
+}
+
+.navbar-content .brand {
+  max-width: 150px;
+  padding: 2px;
+  border: 1px solid black;
+}
+
+.navbar-content .brand img {
+  width: 100%;
+}
+
+.navbar-content .menu li {
+  padding: 0;
+  margin: 0 0 0 5px;
+}
+
+.navbar-content .menu li:hover {
+  border-bottom: 2px solid #222F55;
+}
+
+.navbar-content .menu li a {
+  text-decoration: none;
+  padding: 10px 5px;
+  font-size: 22px;
+  font-weight: normal;
+  display: block;
+  color: #222F55;
 }
