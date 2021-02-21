@@ -1,4 +1,4 @@
-# Homepage (HTML + CSS)
+# Homepage (HTML + CSS + JavaScript)
 A simple homepage written in html and styled using css. It is responsive for different screens covered for almost all major resolutions.
 ## Components
 1. Topbar with social icons

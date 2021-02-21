@@ -1,0 +1,75 @@
+* {
+  font-size: 18px;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+header {
+  background-color: white;
+}
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.topbar-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px 10px;
+  border-bottom: 1px solid #DFDFDF;
+}
+.topbar-content .tagline h5{
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: bolder;
+  color: #394464;
+}
+
+.topbar-content .menu.has-social-icons li {
+  padding: 0 5px;
+}
+
+.topbar-content .menu.has-social-icons li .icon-link {
+  display: block;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
+
+.icon-link.insta, .icon-link.tiktok {
+  background-color: black;
+}
+
+.icon-link.fb {
+  background-color: #3b5998;
+}
+
+.icon-link.youtube {
+  background-color: #cd201f;
+}
+
+.icon-link.linked-in {
+  background-color: #0077b5;
+}
+
+.icon-link.snapchat {
+  background-color: #fffc00;
+}
+
+.icon-link.twitter {
+  background-color: #1da1f2;
+}
+
+.icon-link.pintrest {
+  background-color: #bd081c;
+}
+
+.icon-link.whatsapp {
+  background-color: #25d366;
+}
