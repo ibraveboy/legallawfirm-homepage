@@ -5,14 +5,24 @@ body {
   padding: 0;
   margin: 0;
 }
-header {
-  background-color: white;
+a {
+  text-decoration: none;
+  color: black;
 }
 .container {
   max-width: 1140px;
   margin: 0 auto;
 }
-.icon-link.insta, .icon-link.tiktok {
+/*
+  Header Section
+*/
+header {
+  background-color: white;
+  min-height: 176px;
+  position: sticky;
+}
+.icon-link.insta,
+.icon-link.tiktok {
   background-color: black;
 }
 
@@ -50,14 +60,15 @@ header {
   padding: 0;
 }
 
-.topbar-content, .navbar-content {
+.topbar-content,
+.navbar-content {
   display: flex;
   justify-content: space-between;
   padding: 20px 0px 10px;
-  border-bottom: 1px solid #DFDFDF;
+  border-bottom: 1px solid #dfdfdf;
   align-items: center;
 }
-.topbar-content .tagline h5{
+.topbar-content .tagline h5 {
   margin: 0;
   text-transform: capitalize;
   font-weight: bolder;
@@ -86,7 +97,7 @@ header {
 .navbar-content .brand {
   max-width: 150px;
   padding: 2px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .navbar-content .brand img {
@@ -95,18 +106,182 @@ header {
 
 .navbar-content .menu li {
   padding: 0;
-  margin: 0 0 0 5px;
+  margin: 0 0 0 10px;
+  border-bottom: 2px solid transparent;
 }
 
-.navbar-content .menu li:hover {
-  border-bottom: 2px solid #222F55;
+.navbar-content .menu li:hover,
+.navbar-content .menu li.active {
+  border-bottom: 2px solid #222f55;
 }
 
 .navbar-content .menu li a {
   text-decoration: none;
   padding: 10px 5px;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: normal;
   display: block;
-  color: #222F55;
+  color: #222f55;
+}
+
+/*
+  Main Content
+  Intro Section
+*/
+
+.overlay {
+  background-color: #222f55;
+  opacity: 0.5;
+  transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.section {
+  position: relative;
+}
+
+.section.intro {
+  min-height: 669px;
+  background-image: url("../img/intro_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.intro .section-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 669px;
+  position: relative;
+}
+
+.intro .section-content .title h1 {
+  color: white;
+  font-size: 70px;
+  margin: 0;
+}
+
+.intro .section-content .text-slider {
+  overflow: hidden;
+}
+
+.intro .section-content .text-slider .slides {
+  display: flex;
+  position: relative;
+  left: 0;
+  transition: left 0.5s;
+}
+
+.intro .section-content .text-slider .slides .slide {
+  min-width: 100%;
+}
+
+.intro .section-content .text-slider .slides .slide span {
+  color: #ffba39;
+  font-size: 30px;
+  font-weight: 700;
+  font-style: normal;
+  display: inline-block;
+}
+
+.intro .section-content .text-slider .indicators {
+  justify-content: center;
+  min-width: 100%;
+  margin-top: 10px;
+}
+
+.intro .section-content .text-slider .indicators li {
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  margin-right: 5px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.intro .section-content .text-slider .indicators li.active {
+  background-color: #ffba39;
+  opacity: 1;
+}
+
+.intro .contact-detail {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 130px;
+  display: flex;
+}
+
+.intro .contact-detail .contact-detail-wrapper {
+  display: flex;
+  min-width: 39.948%;
+  margin-left: auto;
+  padding: 22px 15px 20px 15px;
+  background-color: #222f55;
+}
+
+.intro .contact-detail .contact-detail-wrapper .call-icon {
+  width: 20%;
+  min-height: 88px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro .contact-detail .contact-detail-wrapper .call-icon .icon-wrapper {
+  background-color: #ffffff;
+  min-height: 80px;
+  min-width: 80px;
+}
+
+.intro .contact-detail .contact-detail-wrapper .details {
+  color: #ffffff;
+}
+
+.intro .contact-detail .contact-detail-wrapper .details .heading {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.intro .contact-detail .contact-detail-wrapper .details .phone {
+  margin-top: 10px;
+}
+
+.intro .contact-detail .contact-detail-wrapper .details a {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 9.2px;
+}
+
+/*
+  Services Section
+*/
+
+.services {
+  padding: 30px 0px 30px 0px;
+}
+
+.services-content {
+  display: flex;
+}
+
+.services-content .service {
+  flex: 1;
+  padding: 50px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.services-content .service:nth-child(2) {
+  border-style: solid;
+  border-width: 0px 2px 0px 2px;
+  border-color: #E4E1E1;
 }
