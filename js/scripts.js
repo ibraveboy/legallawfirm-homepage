@@ -64,3 +64,26 @@ function autoSlideHandler() {
 
 autoSlideHandler();
 setIntervalId = setInterval(autoSlideHandler, 5000);
+
+document.querySelector('.tab-title').classList.add('active');
+document.querySelector('.tab-content').style.display = 'block';
+let allTabTitles = document.querySelectorAll('.tab-title');
+let allTabContent = document.querySelectorAll('.tab-content');
+var tabIndex = 0;
+
+function tabTitleClickHandler(e) {
+  allTabTitles.item(tabIndex).classList.remove('active');
+  allTabContent.item(tabIndex).style.display = '';
+  tabIndex = 0;
+  let prevElem = e.currentTarget.previousElementSibling;
+  while (prevElem) {
+    tabIndex++;
+    prevElem = prevElem.previousElementSibling;
+  }
+  allTabTitles.item(tabIndex).classList.add('active');
+  allTabContent.item(tabIndex).style.display = 'block';
+}
+
+allTabTitles.forEach(tabTitle => {
+  tabTitle.addEventListener('click', tabTitleClickHandler);
+});
