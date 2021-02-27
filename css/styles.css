@@ -16,6 +16,37 @@ a {
 p {
   line-height: 1.8;
 }
+i {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  display: block;
+}
+.back-to-top {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  text-align: center;
+  z-index: 100;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.back-to-top:hover {
+  background-color: rgba(0,0,0,0.8);
+}
 /*
   Header Section
 */
@@ -29,6 +60,20 @@ header {
 .icon-link.insta,
 .icon-link.tiktok {
   background-color: black;
+}
+
+.icon-link svg,
+.icon-link i {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  display: block;
+  color: white;
+  text-align: center;
+}
+
+.icon-link.tiktok svg {
+  fill: #ffffff;
 }
 
 .icon-link.fb {
@@ -45,6 +90,10 @@ header {
 
 .icon-link.snapchat {
   background-color: #fffc00;
+}
+
+.icon-link.snapchat i {
+  color: #000000;
 }
 
 .icon-link.twitter {
@@ -88,15 +137,35 @@ header {
   height: 30px;
   width: 30px;
   border-radius: 5px;
-  padding: 0;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .navbar-content {
   border-bottom: 0;
   padding: 10px 0;
+}
+
+.navbar-content .menu-toggle {
+  margin-left: auto;
+  background-color: #000000;
+  font-size: 20px;
+  color: #ffffff;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0.25em;
+  cursor: pointer;
+  border: 0 solid;
+  border-radius: 3px;
+  display: none;
+  text-align: center;
 }
 
 .navbar-content .brand {
@@ -237,12 +306,23 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 15px;
 }
 
 .intro .contact-detail .contact-detail-wrapper .call-icon .icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffff;
   min-height: 80px;
   min-width: 80px;
+  font-size: 40px;
+}
+
+.intro .contact-detail .contact-detail-wrapper .call-icon .icon-wrapper i {
+  transform: rotate(0deg);
+  font-size: 40px;
+  color: #222f55;
 }
 
 .intro .contact-detail .contact-detail-wrapper .details {
@@ -252,6 +332,7 @@ header {
 .intro .contact-detail .contact-detail-wrapper .details .heading {
   font-size: 22px;
   font-weight: 700;
+  text-align: left;
 }
 
 .intro .contact-detail .contact-detail-wrapper .details .phone {
@@ -283,6 +364,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .services-content .service:nth-child(2) {
@@ -406,11 +488,17 @@ Description
   /* align-items: center; */
 }
 
+.capabilities .mobile-tabs {
+  display: none;
+}
+
 .capabilities .tabs .tab-titles {
+  position: relative;
   width: 25%;
 }
 
-.capabilities .tabs .tab-titles .tab-title {
+.capabilities .tabs .tab-titles .tab-title,
+.capabilities .mobile-tabs .mtab-title {
   position: relative;
   padding: 20px 25px;
   color: #000000;
@@ -423,46 +511,123 @@ Description
   border-width: 1px;
 }
 
-/* .capabilities .tabs .tab-titles .tab-title::before {
-  border-color: #222f55;
-  border-width: 1px;
+.capabilities .tabs .tab-titles .tab-title::before {
+  border-color: white;
+  border-width: 2px;
 }
 
 .capabilities .tabs .tab-titles .tab-title.active::before {
   top: 0;
-  -webkit-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  transform: translateY(-100%);
-  height: 999em;
   width: 0;
-  right: 0;
+  right: -2px;
+  bottom: 0;
   border-right-style: solid;
   display: block;
   content: "";
   position: absolute;
-} */
+}
 
-.capabilities .tabs .tab-titles .tab-title.active {
+.capabilities .tabs .tab-titles .tab-title.active,
+.capabilities .mobile-tabs .mtab-title {
   border-color: black;
+}
+
+.capabilities .mobile-tabs .mtab-title {
+  border-width: 1px 1px 0px 1px;
+}
+
+.capabilities .mobile-tabs .mtab-content:nth-child(3) .mtab-title {
+  border-width: 1px 1px 1px 1px;
 }
 
 .capabilities .tabs .tab-contents {
   flex: 1;
 }
 
-.capabilities .tabs .tab-contents .tab-content {
+.capabilities .tabs .tab-contents .tab-content,
+.capabilities .mobile-tabs .mtab-content .mtab-body {
   padding: 20px;
   display: none;
+  border: 1px solid black;
 }
 
-.capabilities .tabs .tab-contents .tab-content p {
+.capabilities .mobile-tabs .mtab-content .mtab-body {
+  border-width: 1px 1px 0px 1px;
+}
+
+.capabilities .mobile-tabs .mtab-content:nth-child(3) .mtab-body {
+  border-width: 0px 1px 1px 1px;
+}
+
+.capabilities .tabs .tab-contents .tab-content p,
+.capabilities .mobile-tabs .mtab-content .mtab-body p {
   margin-top: 0;
   color: #54595f;
+}
+
+.capabilities .tabs .tab-contents .tab-content .areas,
+.capabilities .mobile-tabs .mtab-content .areas {
+  display: flex;
+}
+
+.capabilities .mobile-tabs .mtab-content .areas {
+  flex-direction: column;
+}
+
+.capabilities
+  .tabs
+  .tab-contents
+  .tab-content
+  .areas
+  .elementor-widget-container,
+.capabilities .mobile-tabs .mtab-content .areas .elementor-widget-container {
+  padding: 10px;
+}
+
+.capabilities .tabs .tab-contents .tab-content .areas ul,
+.capabilities .mobile-tabs .mtab-content .areas ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.capabilities .tabs .tab-contents .tab-content .areas ul li,
+.capabilities .mobile-tabs .mtab-content .areas ul li {
+  padding-bottom: calc(4px / 2);
+  margin-top: calc(4px / 2);
+  display: flex;
+  align-items: center;
+}
+
+.capabilities
+  .tabs
+  .tab-contents
+  .tab-content
+  .areas
+  ul
+  li
+  .elementor-icon-list-text,
+.capabilities
+  .mobile-tabs
+  .mtab-content
+  .areas
+  ul
+  li
+  .elementor-icon-list-text {
+  padding-left: 6px;
+  line-height: 1.4;
+}
+
+.capabilities .tabs .tab-contents .tab-content .areas ul li i,
+.capabilities .mobile-tabs .mtab-content .areas ul li i {
+  color: #222f55;
+  font-size: 13px;
 }
 
 .capabilities .btn-center {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .capabilities .btn-center a {
@@ -549,10 +714,30 @@ Our Mission
 
 .widget p {
   margin: 10px 0px 0px;
+  line-height: 0.9;
 }
 
 .widget a {
   display: block;
+}
+
+.widget-content p a {
+  display: flex;
+  align-items: center;
+}
+
+.widget-content span {
+  margin-right: 10px;
+}
+
+.widget.address p a {
+  display: inline;
+}
+
+.widget-content span svg,
+.service span svg {
+  fill: #000000;
+  width: 20px;
 }
 
 .footer .developer {
@@ -562,8 +747,171 @@ Our Mission
 
 .footer .developer .note-wrapper {
   width: 40%;
-  background-color: #222F55;
+  background-color: #222f55;
   padding: 10px;
   text-align: center;
   color: white;
+}
+
+/*
+  Media Queries
+*/
+
+@media screen and (max-width: 1140px) {
+  .container {
+    padding: 0px 20px;
+  }
+}
+
+/*
+  Tablet Devices
+*/
+
+@media screen and (max-width: 1024px) {
+  p {
+    line-height: 1.5;
+  }
+  .navbar-content {
+    flex-wrap: wrap;
+  }
+  .navbar-content .menu-toggle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .navbar-content .menu {
+    padding: 0px;
+    width: 100%;
+    flex-direction: column;
+    background-color: #222f55;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+    flex-wrap: nowrap;
+  }
+  .navbar-content .menu li {
+    text-align: center;
+    margin: 0;
+  }
+  .navbar-content .menu li a {
+    color: white;
+  }
+  .intro .contact-detail .contact-detail-wrapper {
+    width: 100%;
+  }
+  .description .des-content .left p {
+    letter-spacing: 1px;
+  }
+  .footer .developer .note-wrapper {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .topbar-content {
+    justify-content: center;
+  }
+  .topbar-content .tagline {
+    display: none;
+  }
+  .intro .section-content .title h1 {
+    text-align: center;
+    font-size: 60px;
+  }
+  .intro .section-content .text-slider .slides .slide span {
+    text-align: center;
+    width: 100%;
+  }
+  .intro .contact-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222f55;
+  }
+  .intro .contact-detail .contact-detail-wrapper {
+    min-width: auto;
+    width: auto;
+    margin: auto;
+  }
+  .intro .contact-detail .contact-detail-wrapper .details .heading {
+    text-align: center;
+  }
+  .intro .contact-detail .contact-detail-wrapper .details small {
+    text-align: center;
+    display: block;
+  }
+  .services {
+    padding: 10px 0px;
+  }
+  .services-content {
+    flex-wrap: wrap;
+  }
+  .services-content .service {
+    flex: auto;
+    width: 100%;
+    padding: 10px 0px;
+  }
+  .services-content .service:nth-child(2) {
+    border-width: 2px 0px 2px 0px;
+  }
+  .description .des-content {
+    flex-wrap: wrap;
+  }
+  .description .des-content .left,
+  .description .des-content .right {
+    width: 100%;
+    flex: auto;
+  }
+  .description .des-content .left {
+    padding: 0;
+  }
+  .description .des-content .left div {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .capabilities .tabs {
+    display: none;
+  }
+  .capabilities .mobile-tabs {
+    display: block;
+  }
+  .capabilities .container {
+    padding: 0;
+  }
+  .mission .mission-content {
+    margin: 0px 0px;
+  }
+  .mission p {
+    text-align: justify;
+  }
+  .touch {
+    padding: 50px 0px 0px;
+  }
+  .map .map-content {
+    padding: 0px;
+  }
+  .footer .upper-content {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer .upper-content .widget {
+    flex: auto;
+  }
+  .widget .title {
+    text-align: center;
+  }
+  .footer .menu {
+    justify-content: center;
+  }
+  .copyright p {
+    text-align: center;
+  }
+  .footer .developer .note-wrapper {
+    width: 100%;
+  }
 }

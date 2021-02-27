@@ -12,7 +12,11 @@ slides.forEach(slide => {
     indicatorsWrapper.appendChild(indicator);
   }
   if (slide.clientWidth > maxWidth) {
-    maxWidth = slide.clientWidth + 30;
+    if (window.innerWidth <= 750) {
+      maxWidth = slide.clientWidth;
+    } else {
+      maxWidth = slide.clientWidth + 30;
+    }
   }
 });
 let indicators = document.querySelectorAll('.indicators li');
@@ -87,3 +91,65 @@ function tabTitleClickHandler(e) {
 allTabTitles.forEach(tabTitle => {
   tabTitle.addEventListener('click', tabTitleClickHandler);
 });
+
+var menuItems = document.querySelectorAll('.navbar-content li');
+var menu = document.querySelector('.navbar-content .menu');
+var isMenuOpen = false;
+var totalHeight = 0;
+menuItems.forEach(menuItem => {
+  totalHeight = totalHeight + menuItem.clientHeight;
+})
+function menuToggleClickHandler(e) {
+  var menuToggleIcon = e.currentTarget.querySelector('i');
+  menuToggleIcon.classList.toggle('fa-bars');
+  menuToggleIcon.classList.toggle('fa-times');
+  if (isMenuOpen) {
+    menu.style = '';
+  } else {
+    menu.style.height = `${totalHeight}px`;
+    menu.style.paddingTop = '20px';
+    menu.style.paddingBottom = '20px';
+  }
+  isMenuOpen = !isMenuOpen;
+}
+document.querySelector('.menu-toggle').addEventListener('click', menuToggleClickHandler);
+
+// mtab 
+
+document.querySelector('.mtab-title').classList.add('active');
+document.querySelector('.mtab-body').style.display = 'block';
+let allMTabTitles = document.querySelectorAll('.mtab-title');
+let allMTabContent = document.querySelectorAll('.mtab-body');
+
+function tabTitleClickHandler(e) {
+  var activeTab = e.currentTarget;
+  allMTabTitles.forEach((tabTitle, i) => {
+    tabTitle.classList.remove('active');
+    allMTabContent.item(i).style.display = '';
+  });
+  activeTab.classList.add('active');
+  activeTab.nextElementSibling.style.display = 'block';
+}
+
+allMTabTitles.forEach(tabTitle => {
+  tabTitle.addEventListener('click', tabTitleClickHandler);
+});
+
+//Get the button:
+mybutton = document.querySelector(".back-to-top");
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
