@@ -121,7 +121,7 @@ document.querySelector('.mtab-body').style.display = 'block';
 let allMTabTitles = document.querySelectorAll('.mtab-title');
 let allMTabContent = document.querySelectorAll('.mtab-body');
 
-function tabTitleClickHandler(e) {
+function mtabTitleClickHandler(e) {
   var activeTab = e.currentTarget;
   allMTabTitles.forEach((tabTitle, i) => {
     tabTitle.classList.remove('active');
@@ -132,7 +132,7 @@ function tabTitleClickHandler(e) {
 }
 
 allMTabTitles.forEach(tabTitle => {
-  tabTitle.addEventListener('click', tabTitleClickHandler);
+  tabTitle.addEventListener('click', mtabTitleClickHandler);
 });
 
 //Get the button:
